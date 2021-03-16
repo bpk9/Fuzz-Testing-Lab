@@ -29,6 +29,7 @@ int process(char *input)
         {
             printf("Specified length %d was too large!\n", len);
             free(out);
+            return;
         }
         else if (out == NULL)
         {
