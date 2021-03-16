@@ -34,6 +34,7 @@ int process(char *input)
         else if (out == NULL)
         {
             printf("Failed to allocate memory\n");
+            return Error;
         }
 
         int i = 0, j = 0;
