@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
     }
 
     int ret = process(input);
-    if (ret == Snake)
+    if (ret == Snake && *out)
     {
         printf("%s\n", out);
         free(out);
