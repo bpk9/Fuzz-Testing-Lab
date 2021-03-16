@@ -10,5 +10,11 @@ $(TARGET):
 	$(CC) -o $(TARGET) $(TARGET).c
 
 test:
+	make clean
 	make $(TARGET)
 	$(FUZZER) -i $(TESTCASES) -o $(FINDINGS) ./$(TARGET)
+
+clean:
+	rm -f $(TARGET)
+	rm -rf $(FINDINGS)/*
+	rm -f $(FINDINGS)/.cur_input
