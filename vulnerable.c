@@ -67,6 +67,7 @@ int process(char *input)
         else
         {
             printf("Head input was too small!\n");
+            return Error;
         }
     }
     else
