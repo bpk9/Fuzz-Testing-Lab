@@ -1,15 +1,14 @@
-CC=gcc
-CXX=g++
-CFLAGS=-Wall -g -O0
+CC = afl/afl-gcc
+FUZZER = afl/afl-fuzz
 
 TARGET = vulnerable
 
-.PHONY: clean $(TARGET) test 
+TESTCASES = in/testcases
+FINDINGS = out/findings
 
-$(TARGET): $(TARGET).c
-	$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).c
+$(TARGET):
+	$(CC) -o $(TARGET) $(TARGET).c
 
-clean: 
-	$(RM) $(TARGET)
-
-test: # add your command
+test:
+	make $(TARGET)
+	$(FUZZER) -i $(TESTCASES) -o $(FINDINGS) ./$(TARGET)
