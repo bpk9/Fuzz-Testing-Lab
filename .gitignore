@@ -3,3 +3,6 @@ out/findings
 
 # compiled binary
 vulnerable
+
+# OSX (Mac) Desktop Services Store
+.DS_Store
