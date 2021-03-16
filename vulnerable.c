@@ -62,6 +62,11 @@ int process(char *input)
         {
             len = strtol(input + 5, &rest, 10);
             rest += 1;        // skip the first char (should be a space)
+
+            // do not return more than the max # of bytes in <string>
+            if (len > strlen(rest))
+                len = strlen(rest);
+
             rest[len] = '\0'; // truncate string at specified offset
         }
         else
