@@ -68,6 +68,13 @@ int process(char *input)
         if (strlen(input) > 6)
         {
             len = strtol(input + 5, &rest, 10);
+
+            if (len < 0)
+            {
+                printf("Specified length %d must be positive!\n", len);
+                return Error;
+            }
+
             rest += 1;        // skip the first char (should be a space)
 
             // do not return more than the max # of bytes in <string>
