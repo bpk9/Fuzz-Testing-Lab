@@ -23,6 +23,13 @@ int process(char *input)
     {
         err = Snake;
         len = strtol(input + 6, &rest, 10);    // how many characters of the string to retain
+        
+        if (len < 0)
+        {
+            printf("Specified length %d must be positive!\n", len);
+            return Error;
+        }
+        
         rest += 1;                             // skip the first char (should be a space)
         out = malloc(strlen(input) * 2 + len); // could be shorter, but play it safe
         if (len > INPUTSIZE * 2)
